@@ -1,0 +1,9 @@
+services:
+  intercom_passthrough:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: intercom_passthrough
+    restart: unless-stopped
+    env_file:
+      - .env
