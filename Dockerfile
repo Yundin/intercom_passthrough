@@ -1,7 +1,10 @@
-FROM python:3.11-alpine
+FROM mwader/static-ffmpeg:latest as ffmpeg-bin
+
+FROM python:3-alpine
 
 # Install ffmpeg
-RUN apk --no-cache add ffmpeg
+COPY --from=ffmpeg-bin /ffmpeg /usr/local/bin/
+COPY --from=ffmpeg-bin /ffprobe /usr/local/bin/
 
 WORKDIR /app
 
