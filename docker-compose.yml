@@ -5,5 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: intercom_passthrough
     restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
